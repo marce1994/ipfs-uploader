@@ -7,14 +7,13 @@ namespace Uploader.Web
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
             .UseSetting(WebHostDefaults.DetailedErrorsKey, "true")
             .UseUrls("http://0.0.0.0:5000")
-            .UseStartup<Startup>()
-            .Build();
+            .UseStartup<Startup>();
     }
 }
